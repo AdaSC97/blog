@@ -182,42 +182,36 @@ GRID CATEGORIAS
 
 .grid .photo1{
 	height:400px;
-	background:url(../img/suramerica.jpg);
 	background-size:cover;
 	background-position:left;
 }
 
 .grid .photo2{
-	height:300px;
-	background:url(../img/africa.jpg);
+	height:400px;
 	background-size:cover;
 	background-position:left;
 }
 
 .grid .photo3{
-	height:300px;
-	background:url(../img/centroamerica.jpg);
+	height:400px;
 	background-size:cover;
 	background-position:left;
 }
 
 .grid .photo4{
-	height:300px;
-	background:url(../img/europa.jpg);
+	height:400px;
 	background-size:cover;
 	background-position:left;
 }
 
 .grid .photo5{
 	height:400px;
-	background:url(../img/norteamerica.jpg);
 	background-size:cover;
 	background-position:left;
 }
 
 .grid .photo6{
 	height:200px;
-	background:url(../img/asia.jpg);
 	background-size:cover;
 	background-position:left;
 }

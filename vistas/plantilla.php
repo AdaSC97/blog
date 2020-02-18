@@ -1,5 +1,7 @@
 <?php
 $blog = ControladorBlog::ctrMostrarBlog();
+$categorias = ControladorBlog::ctrMostrarCategorias();
+//echo '<pre class="bg-white">'; print_r($categorias); echo '</pre>'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
