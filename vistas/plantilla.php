@@ -1,3 +1,6 @@
+<?php
+$blog = ControladorBlog::ctrMostrarBlog();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +9,25 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Ada Travel</title>
+	<title><?php echo $blog["titulo"] ?></title>
 
+	<meta name="title" content="<?php echo $blog["titulo"] ?>">
+	<meta name="descripcion" content="<?php echo $blog["descripcion"] ?>">
+	
+	
+	<?php
+	$palabras_clave = json_decode($blog["palabras_clave"], true);
+	$p_claves = "";
+	foreach($palabras_clave as $key => $value){
+
+		$p_claves .= $value.",";
+	}
+	$p_claves = substr($p_claves, 0, -1);
+	
+	?>
+
+	<meta name="keywords" content="<?php echo $p_claves ?>">
+	
 	<link rel="icon" href="vistas/img/icono.png">
 
 	<!--=====================================

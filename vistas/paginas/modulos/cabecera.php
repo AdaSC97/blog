@@ -2,7 +2,7 @@
 CABECERA
 ======================================-->
 
-<header class="container-fluid" id="header">
+<header class="container-fluid">
 	
 	<div class="container p-0">
 		
@@ -13,7 +13,7 @@ CABECERA
 				
 				<a href="index.html">
 					
-					<img src="vistas/img/ada.png" alt="Logo de Ada travel">
+					<img src="<?php echo $blog["logo"]; ?>" alt="Logo de Ada travel">
 
 				</a>
 
@@ -23,40 +23,20 @@ CABECERA
 			<div class="d-none d-md-block col-md-2 redes">
 				
 				<ul class="d-flex justify-content-end pt-3 mt-1">
-					
-					<li>
-						<a href="https://www.facebook.com" target="_blank">
-						<img src="vistas/img/facebook.png" width="40" heigth="40" style="margin: 0 5px 0 0">
-							
-					</a>
-					</li>
+				<?php
+				$redes_sociales = json_decode($blog["redes_sociales"], true);
+				
+				foreach($redes_sociales as $key => $value){
 
-					<li>
-						<a href="#" target="_blank">
-							<img src="vistas/img/insta.png" width="40" heigth="40" style="margin: 0 5px 0 0">
+					echo 
+					'<li>
+						<a href="'.$value["url"].'" target="_blank">
+						<img src="'.$value["icono"].'" width="40" heigth="40" style="margin: 0 5px 0 0">
 						</a>
-					</li>
+					</li>';
 
-					<li>
-						<a href="#" target="_blank">
-						<img src="vistas/img/twit.png" width="40" heigth="40" style="margin: 0 5px 0 0">
-						</a>
-					</li>
-
-					<li>
-						<a href="#" target="_blank">
-							<img src="vistas/img/yu.png" width="40" heigth="40" style="margin: 0 5px 0 0">
-						</a>
-					</li>
-
-					<li>
-						<a href="#" target="_blank">
-							<img src="vistas/img/anap.png" width="40" heigth="40" style="margin: 0 5px 0 0">
-						</a>
-					</li>
-
-				</ul>
-
+				}
+				?>
 			</div>
 
 			<!-- BUSCADOR Y BOTÓN MENÚ -->

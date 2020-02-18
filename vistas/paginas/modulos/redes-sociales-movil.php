@@ -5,38 +5,21 @@ REDES SOCIALES PARA MÓVIL
 <div class="d-block d-md-none redes redesMovil p-0 bg-white w-100 pt-2">
 				
 	<ul class="d-flex justify-content-center p-0">
-		
-	<li>
-						<a href="https://www.facebook.com" target="_blank">
-						<img src="vistas/img/facebook.png" width="40" heigth="40" style="margin: 0 5px 0 0">
-							
-					</a>
-					</li>
+	<ul class="d-flex justify-content-end pt-3 mt-1">
+				<?php
+				$redes_sociales = json_decode($blog["redes_sociales"], true);
+				
+				foreach($redes_sociales as $key => $value){
 
-					<li>
-						<a href="#" target="_blank">
-							<img src="vistas/img/insta.png" width="40" heigth="40" style="margin: 0 5px 0 0">
+					echo 
+					'<li>
+						<a href="'.$value["url"].'" target="_blank">
+						<img src="'.$value["icono"].'" width="40" heigth="40" style="margin: 0 5px 0 0">
 						</a>
-					</li>
+					</li>';
 
-					<li>
-						<a href="#" target="_blank">
-						<img src="vistas/img/twit.png" width="40" heigth="40" style="margin: 0 5px 0 0">
-						</a>
-					</li>
-
-					<li>
-						<a href="#" target="_blank">
-							<img src="vistas/img/yu.png" width="40" heigth="40" style="margin: 0 5px 0 0">
-						</a>
-					</li>
-
-					<li>
-						<a href="#" target="_blank">
-							<img src="vistas/img/anap.png" width="40" heigth="40" style="margin: 0 5px 0 0">
-						</a>
-					</li>
-
+				}
+				?>
 	</ul>
 
 </div>
