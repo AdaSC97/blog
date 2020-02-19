@@ -10,25 +10,81 @@ $categorias = ControladorBlog::ctrMostrarCategorias();
 	<meta charset="UTF-8">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title><?php echo $blog["titulo"] ?></title>
 
-	<meta name="title" content="<?php echo $blog["titulo"] ?>">
-	<meta name="descripcion" content="<?php echo $blog["descripcion"] ?>">
-	
-	
 	<?php
-	$palabras_clave = json_decode($blog["palabras_clave"], true);
-	$p_claves = "";
-	foreach($palabras_clave as $key => $value){
 
-		$p_claves .= $value.",";
-	}
-	$p_claves = substr($p_claves, 0, -1);
+	$validarRuta = "";
+		if(isset($_GET["pagina"])){
+			foreach($categorias as $key => $value){
 	
-	?>
+				if($_GET["pagina"] == $value["ruta_categoria"]){
 
-	<meta name="keywords" content="<?php echo $p_claves ?>">
+					$validarRuta = "categorias";
+
+				break;
+
+				}
+			}
+			if($validarRuta == "categorias"){
+
+				echo
+					'<title>'.$blog["titulo"].' | '. $value["descripcion_categoria"].'</title>
+					<meta name="title" content="'.$value["titulo_categoria"].'>">
+					<meta name="descripcion" content="'.$value["descripcion_categoria"].'">
+					';
+
+					$palabras_clave = json_decode($blog["palabras_clave"], true);
+						$p_claves = "";
+						foreach($palabras_clave as $key => $value){
+
+							$p_claves .= $value.",";
+						}
+						$p_claves = substr($p_claves, 0, -1);
+
+						echo '<meta name="keywords" content="'.$p_claves.'">';
+	
+				}else{
+				echo
+					'<title>'.$blog["titulo"].'</title>
+					<meta name="title" content="'.$blog["titulo"].'>">
+					<meta name="descripcion" content="'. $blog["descripcion"].'">
+					';
+
+					$palabras_clave = json_decode($blog["palabras_clave"], true);
+						$p_claves = "";
+						foreach($palabras_clave as $key => $value){
+
+							$p_claves .= $value.",";
+						}
+						$p_claves = substr($p_claves, 0, -1);
+
+						echo '<meta name="keywords" content="'.$p_claves.'">';
+				}
+		}else{
+	
+			echo
+				'<title>'.$blog["titulo"].'</title>
+				<meta name="title" content="'.$blog["titulo"].'>">
+				<meta name="descripcion" content="'. $blog["descripcion"].'">
+				';
+
+				$palabras_clave = json_decode($blog["palabras_clave"], true);
+					$p_claves = "";
+					foreach($palabras_clave as $key => $value){
+
+						$p_claves .= $value.",";
+					}
+					$p_claves = substr($p_claves, 0, -1);
+
+					echo '<meta name="keywords" content="'.$p_claves.'">';
+				//break;
+
+				
+			}
+
+			?>
+	
+
 	
 	<link rel="icon" href="vistas/img/icono.png">
 
@@ -95,7 +151,37 @@ $categorias = ControladorBlog::ctrMostrarCategorias();
 	Navegar entre páginas
 	=============================================*/	
 
-	include "paginas/inicio.php";
+	$validarRuta = "";
+
+	if(isset($_GET["pagina"])){
+		foreach($categorias as $key => $value){
+			
+			if($_GET["pagina"] == $value["ruta_categoria"]){
+
+				$validarRuta = "categorias";
+				
+			}
+				
+		}
+		/*=============================================
+			Validar las rutas
+		=============================================*/	
+		if($validarRuta == "categorias"){
+
+				include "paginas/categorias.php";
+			
+
+			}else{
+				include "paginas/404.php";
+
+			}
+
+	}else{
+
+		include "paginas/inicio.php";
+
+	}
+
 
 	/*=============================================
 	Módulos fijos inferiores
