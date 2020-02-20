@@ -1,7 +1,8 @@
 <?php
 $blog = ControladorBlog::ctrMostrarBlog();
 $categorias = ControladorBlog::ctrMostrarCategorias();
-//echo '<pre class="bg-white">'; print_r($categorias); echo '</pre>'; 
+$articulos = ControladorBlog::ctrMostrarConInnerJoin(5);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,6 +106,7 @@ $categorias = ControladorBlog::ctrMostrarCategorias();
 
 	<link rel="stylesheet" href="vistas/css/style.css">
 
+	
 	<!--=====================================
 	PLUGINS DE JS
 	======================================-->
